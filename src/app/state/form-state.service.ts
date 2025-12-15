@@ -46,4 +46,8 @@ export class FormStateService {
 
     this.selectedFieldSubject.next(updatedSelected);
   }
+
+  getSnapshot() {
+    return this.fieldsSubject.value;
+  }
 }
