@@ -1,0 +1,16 @@
+<div class="p-3 border rounded bg-light">
+      <h5>Properties Panel</h5>
+
+      @if (state.selectedField$ | async; as field) {
+
+        <label class="form-label">Edit Label</label>
+        <input
+          class="form-control"
+          [ngModel]="field.label"
+          (ngModelChange)="state.updateLabel($event)"
+        />
+
+      } @else {
+        <p>Select a field from canvas</p>
+      }
+    </div>

@@ -1,0 +1,38 @@
+<div class="p-3 border rounded">
+      <h5>Canvas Area (Material)</h5>
+
+      @for (field of state.fields$ | async; track field.id) {
+
+        <div
+          class="p-2 mt-2 border rounded"
+          style="cursor:pointer"
+          (click)="state.selectField(field)"
+        >
+
+          @switch (field.type) {
+
+            @case ('input') {
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>{{ field.label }}</mat-label>
+                <input matInput />
+              </mat-form-field>
+            }
+
+            @case ('checkbox') {
+              <mat-checkbox>
+                {{ field.label }}
+              </mat-checkbox>
+            }
+
+            @case ('button') {
+              <button mat-raised-button color="primary">
+                {{ field.label }}
+              </button>
+            }
+
+          }
+
+        </div>
+
+      }
+    </div>
